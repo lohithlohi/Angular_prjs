@@ -1,0 +1,115 @@
+/* Container */
+.card-main {
+  height: 100dvh;
+  width: 100dvw;
+  background-image: url('/images/bg-main-desktop.png');
+  background-position: left;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 50px;
+}
+
+/* Form Styling */
+form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Row Styling */
+.form-row {
+  margin-bottom: 1.5em;
+}
+
+/* Labels */
+.form-row label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1rem;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+/* Expiry Date and CVC Layout */
+.w-50 {
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.expiry-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expiry-group input {
+  width: 48%;
+}
+
+.expiry-group input:last-child {
+  margin-right: 0;
+}
+
+/* Placeholder Styling */
+input::placeholder {
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .w-50 {
+    width: 100%;
+    display: block;
+    margin-bottom: 1em;
+  }
+  
+  .expiry-group {
+    flex-direction: column;
+  }
+  
+  .expiry-group input {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+}
+
+/* Confirm Button Styling */
+.confirm-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-button:hover {
+  background-color: #0056b3;
+}
+
+.confirm-button:active {
+  background-color: #004080;
+}
+
+.confirm-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

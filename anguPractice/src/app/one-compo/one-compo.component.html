@@ -1,0 +1,119 @@
+<h3>one-compo "Practice" works!</h3>
+
+<div class="practice-component">
+    <!-- interpolation & property binding -> from only .ts to .html -->
+    <label>GENDER</label><br>
+    <label for="gender">{{gendLable}}</label>
+    <input [type]="inpType" name="gen" id="gender">
+
+    <!-- Event binding -> from only .html to .ts -->
+    <button style="display: block;" (click)="ToggleGender()">Toggle Gender</button>
+
+    <!-- 2 way binding -->
+    <input type="text" [(ngModel)]="Myname" placeholder="Enter your name"> -- {{Myname}}
+
+    <h4>{{firstName()}}</h4>
+    <button (click)="changeName()">Change Name</button>
+
+    <hr>
+    
+    <div>
+        <table>
+            <caption>From *ngFor="" loop</caption>
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Status</th>
+                    <th>Gender</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let stud of StudentList, let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{stud.name}}</td>
+                    <td>{{stud.age}}</td>
+                    <td>{{stud.city}}</td>
+                    <td [ngClass]="stud.isActive? 'bg-green': 'bg-red'">
+                        {{stud.isActive? "Active" : "De-Active"}}
+                    </td>
+                    <td [ngStyle]="{'background-color':'lightblue'}">{{stud.gender}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <div>
+        <table>
+            <caption>From &aacute;For() loop</caption>
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Status</th>
+                    <th>Gender</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (stud of StudentList; track $index) {
+                    <tr>
+                        <td>{{$index+1}}</td>
+                        <td>{{stud.name}}</td>
+                        <td>{{stud.age}}</td>
+                        <td>{{stud.city}}</td>
+                        <td [ngClass]="stud.isActive? 'bg-green': 'bg-red'">
+                            {{stud.isActive? "Active" : "De-Active"}}
+                        </td>
+                        <td [ngStyle]="{'background-color':'lightblue'}">{{stud.gender}}</td>
+                    </tr>   
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <div>
+        <label for="day">Enter day number: </label>
+        <input type="number" id="day" [(ngModel)]="daynum">
+        <div class="switch-case-stuff">
+            Day name is: 
+            @switch (daynum) {
+                @case (1) {
+                    <span>Monday</span>
+                }
+                @case (2) {
+                    <span>Tuesday</span>
+                }
+                @case (3) {
+                    <span>Wednesday</span>
+                }
+                @case (4) {
+                    <span>Thursday</span>
+                }
+                @case (5) {
+                    <span>Friday</span>
+                }
+                @case (6) {
+                    <span>Saturday</span>
+                }
+                @case (7) {
+                    <span>Sunday</span>
+                }
+                @default {
+                    <span>Invalid day number</span>
+                }
+            }
+        </div>
+    </div>
+
+
+
+
+</div>

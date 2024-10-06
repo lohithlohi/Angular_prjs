@@ -1,0 +1,73 @@
+<section class="card-main">
+  <form>
+    <!-- Cardholder Name -->
+    <div class="form-row">
+      <label for="name">Cardholder Name</label>
+      <input 
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Cardholder's name"
+        required
+      />
+    </div>
+
+    <!-- Card Number -->
+    <div class="form-row">
+      <label for="cardNumber">Card Number</label>
+      <input 
+        type="text"
+        id="cardNumber"
+        name="cardNumber"
+        placeholder="e.g. 1234 5678 9123 0000"
+        pattern="\d{4} \d{4} \d{4} \d{4}"
+        required
+      />
+    </div>
+
+    <!-- Expiry Date and CVC -->
+    <div class="form-row">
+      <div class="w-50">
+        <label for="expiryMonth">Expiry Date (MM/YY)</label>
+        <div class="expiry-group">
+          <input
+            type="number"
+            id="expiryMonth"
+            name="expiryMonth"
+            placeholder="MM"
+            min="01"
+            max="12"
+            required
+          />
+          <input
+            type="number"
+            id="expiryYear"
+            name="expiryYear"
+            placeholder="YY"
+            min="00"
+            max="99"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="w-50">
+        <label for="cvc">CVC</label>
+        <input
+          type="number"
+          id="cvc"
+          name="cvc"
+          placeholder="e.g. 123"
+          min="100"
+          max="999"
+          required
+        />
+      </div>
+    </div>
+
+    <!-- Confirm Button -->
+    <div class="form-row">
+      <button type="submit" class="confirm-button">Confirm</button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,84 @@
+<div class="formsContainer">
+    <form class="row g-3 needs-validation" [formGroup]="studentform">
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">First name</label>
+          <input type="text" class="form-control" id="validationCustom01" formControlName="firstname">
+          @if ((studentform.controls['firstname'].dirty || studentform.controls['firstname'].touched) && studentform.controls['firstname'].errors?.['required']) {
+            <span style="color: red;">fname Required</span>
+          } @else if (studentform.controls['firstname'].errors?.['minlength']) {
+            <span style="color: red;">min 3 char required</span>
+          }
+        </div>
+        
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Last name</label>
+          <input type="text" class="form-control" id="validationCustom02" value="Otto" formControlName="lastname">
+          @if ((studentform.controls['lastname'].dirty || studentform.controls['lastname'].touched) && studentform.controls['lastname'].errors?.['required']) {
+            <span style="color: red;">lname Required</span>
+          } @else if (studentform.controls['lastname'].errors?.['minlength']) {
+            <span style="color: red;">min 3 char required</span>
+          }
+        </div>
+        
+        <div class="col-md-4">
+          <label for="validationCustomUsername" class="form-label">Username</label>
+          <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend"></span>
+            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" formControlName="username">
+            @if ((studentform.controls['username'].dirty || studentform.controls['username'].touched) && studentform.controls['username'].errors?.['email']) {
+              <span style="color: red;">invalid email</span>
+            }
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">City</label>
+          <input type="text" class="form-control" id="validationCustom03" formControlName="city">
+          @if ((studentform.controls['city'].dirty || studentform.controls['city'].touched) && studentform.controls['city'].errors?.['required']) {
+            <span style="color: red;">city Required</span>
+          }
+        </div>
+        
+        <div class="col-md-3">
+          <label for="validationCustom04" class="form-label">State</label>
+          <select class="form-select" id="validationCustom04" formControlName="state">
+            <option value="">Choose...</option>
+            <option>karnataka</option>
+            <option>kolkata</option>
+            <option>maharastra</option>
+            <option>andra</option>
+            <option>kerala</option>
+          </select>
+          @if ((studentform.controls['state'].dirty || studentform.controls['state'].touched) && studentform.controls['state'].errors?.['required']) {
+            <span style="color: red;">state Required</span>
+          }
+        </div>
+
+        <div class="col-md-3">
+          <label for="validationCustom05" class="form-label">Zip</label>
+          <input type="number" class="form-control" id="validationCustom05" formControlName="zip">
+          @if ((studentform.controls['zip'].dirty || studentform.controls['zip'].touched) && studentform.controls['zip'].errors?.['required']) {
+            <span style="color: red;">zip Required</span>
+          } @else if (studentform.controls['zip'].errors?.['maxlength']) {
+            <span style="color: red;">max 6 numbers</span>
+          }
+        </div>
+        
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" formControlName="isterms">
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit" (click)="onsave()" [disabled]="studentform.invalid">Submit form</button>
+        </div>
+      </form>
+
+      <hr>
+
+      <div>{{formValue | json}}</div>
+</div>
